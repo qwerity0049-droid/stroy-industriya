@@ -157,14 +157,13 @@ export default function VideoFAQ() {
 
         <p className="mt-10 text-center text-slate-500 text-sm">
           Остались вопросы?{' '}
-          <a
-            href="https://web.telegram.org/a/#8345273002"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#F57C00] font-semibold hover:underline"
+          <button
+            type="button"
+            onClick={() => (window.openContactModal?.() || document.dispatchEvent(new CustomEvent('openContactModal')))}
+            className="text-[#F57C00] font-semibold hover:underline bg-transparent border-none cursor-pointer p-0"
           >
-            Напишите Самату лично в Telegram
-          </a>
+            Свяжитесь с нами
+          </button>
         </p>
       </div>
     </section>

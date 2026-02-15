@@ -52,23 +52,29 @@ function CompareSlider({ split, onSplitChange, className = '' }) {
     >
       <div className="compare-slider__before absolute inset-0 overflow-hidden">
         <img
-          src="assets/slider-before.png"
+          src="assets/slider-before.webp"
           alt="До: разметка участка под фундамент"
           className="absolute inset-0 w-full h-full object-cover grayscale sepia-[0.3] opacity-90 contrast-[0.85] object-[center_75%]"
+          loading="lazy"
+          width={480}
+          height={480}
           onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.parentElement.style.background = 'linear-gradient(135deg,#4a3728 0%,#2d2218 100%)';
+            if (e.target.src.includes('.webp')) { e.target.onerror=null; e.target.src='assets/slider-before.png'; }
+            else { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#4a3728 0%,#2d2218 100%)'; }
           }}
         />
       </div>
       <div className="compare-slider__after absolute inset-0 overflow-hidden">
         <img
-          src="assets/slider-after.png"
+          src="assets/slider-after.webp"
           alt="После: залитый бетонный фундамент"
           className="absolute inset-0 w-full h-full object-cover object-[center_75%]"
+          loading="lazy"
+          width={480}
+          height={480}
           onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.parentElement.style.background = 'linear-gradient(135deg,#6b7280 0%,#4b5563 100%)';
+            if (e.target.src.includes('.webp')) { e.target.onerror=null; e.target.src='assets/slider-after.png'; }
+            else { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#6b7280 0%,#4b5563 100%)'; }
           }}
         />
       </div>
@@ -112,8 +118,8 @@ function StepCard({ step, index, lineProgress }) {
         whileHover={{ scale: 1.01 }}
         transition={{ duration: 0.2 }}
       >
-        <h3 className="text-base sm:text-lg font-bold text-slate-800 mb-1">{step.title}</h3>
-        <p className="text-slate-600 text-sm leading-relaxed">{step.desc}</p>
+        <h3 className="text-2xl md:text-lg font-bold text-slate-800 mb-1">{step.title}</h3>
+        <p className="text-slate-600 text-base md:text-sm leading-relaxed">{step.desc}</p>
       </motion.div>
     </motion.div>
   );
@@ -141,7 +147,7 @@ export default function ProcessWithSlider() {
           Как мы работаем
         </h2>
         <p className="text-slate-600 text-center text-base mb-2 max-w-xl mx-auto">
-          От заявки до сдачи — прозрачный процесс под личным контролем
+          Вы заранее знаете сроки, этапы и итоговую стоимость.
         </p>
         <p className="text-slate-500 text-xs text-center mb-8 md:mb-10">Гарантия по договору. Личный контроль инженера Самата.</p>
 

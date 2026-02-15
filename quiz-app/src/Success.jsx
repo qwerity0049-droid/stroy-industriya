@@ -114,9 +114,13 @@ export default function Success() {
                   style={{ ringColor: BRAND_ORANGE }}
                 >
                   <img
-                    src="assets/samat-success.png"
+                    src="assets/samat-success.webp"
                     alt="Самат Хайруллин"
                     className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                    width={96}
+                    height={96}
+                    onError={(e) => { e.target.onerror=null; e.target.src='assets/samat-success.png'; }}
                   />
                 </div>
               </div>

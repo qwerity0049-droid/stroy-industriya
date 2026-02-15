@@ -48,47 +48,12 @@ const STEPS = [
   },
 ];
 
-function DiscountTracker({ percent }) {
-  const fillPercent = (percent / MAX_DISCOUNT) * 100;
-
-  return (
-    <motion.div
-      className="bg-white rounded-xl p-5 mb-4 border-2 border-orange-500/20 shadow-lg"
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
-      <div className="flex items-baseline justify-between gap-3 mb-3">
-        <p className="text-slate-600 text-sm font-medium">Ваша выгода</p>
-        <motion.span
-          key={percent}
-          className="text-xl sm:text-2xl font-bold tabular-nums"
-          style={{ color: BRAND_ORANGE }}
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
-          {percent}%
-        </motion.span>
-      </div>
-      <div className="h-2.5 bg-slate-200 rounded-full overflow-hidden">
-        <motion.div
-          className="h-full rounded-full"
-          style={{ backgroundColor: BRAND_ORANGE, boxShadow: '0 0 10px rgba(238, 65, 11, 0.4)' }}
-          initial={{ width: 0 }}
-          animate={{ width: `${fillPercent}%` }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        />
-      </div>
-    </motion.div>
-  );
-}
-
 function QuizOption({ option, isSelected, onSelect }) {
   return (
     <motion.button
       type="button"
       onClick={() => onSelect(option)}
-      className={`w-full text-left min-h-[52px] py-4 px-5 rounded-xl border-2 transition-all flex items-center gap-4 touch-manipulation ${
+      className={`w-full text-left min-h-[56px] py-4 px-5 rounded-xl border-2 transition-all flex items-center gap-4 touch-manipulation ${
         isSelected
           ? 'border-[#EE410B] bg-[#EE410B]/5'
           : 'border-slate-200 hover:border-[#EE410B]/50 bg-white active:bg-slate-50'
@@ -189,18 +154,19 @@ export default function Quiz() {
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <span>Расчёт сметы за 15 минут</span>
+              {discountPercent > 0 && (
+                <span className="font-bold" style={{ color: BRAND_ORANGE }}>· Скидка: {discountPercent}%</span>
+              )}
             </div>
 
             {!isFinalStep ? (
               <>
-                <h2 className="text-xl md:text-2xl font-bold text-center text-slate-800 mb-2">
+                <h2 className="text-2xl md:text-2xl font-bold text-center text-slate-800 mb-2">
                   Рассчитаем фундамент в 3 вариантах под ваш бюджет и грунт за 15 минут
                 </h2>
-                <p className="text-slate-600 text-center text-sm mb-4">
+                <p className="text-slate-600 text-center text-base mb-4">
                   Сравним по цене, срокам и надёжности, чтобы вы выбрали лучшее решение без переплат
                 </p>
-
-                <DiscountTracker percent={discountPercent} />
 
                 <div className="h-2.5 bg-slate-200 rounded-full mb-4 overflow-hidden">
                   <motion.div
@@ -246,7 +212,7 @@ export default function Quiz() {
                     type="button"
                     onClick={handlePrev}
                     disabled={step === 1}
-                    className="min-h-[48px] px-6 py-3.5 border-2 border-slate-300 rounded-xl font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 transition touch-manipulation"
+                    className="w-full md:w-auto min-h-[56px] px-6 py-3.5 border-2 border-slate-300 rounded-xl font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 transition touch-manipulation"
                   >
                     Назад
                   </button>
@@ -264,7 +230,7 @@ export default function Quiz() {
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+                  <h2 className="text-2xl md:text-2xl font-bold text-slate-800 mb-2">
                     Скидка 10% активирована!
                   </h2>
                   <p className="text-slate-600 mb-1">
@@ -278,14 +244,14 @@ export default function Quiz() {
                     placeholder="Ваше имя"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full min-h-[48px] px-4 py-3.5 text-base border-2 border-slate-200 rounded-xl focus:border-[#EE410B] focus:ring-0 outline-none touch-manipulation"
+                    className="w-full min-h-[56px] px-4 py-3.5 text-base border-2 border-slate-200 rounded-xl focus:border-[#EE410B] focus:ring-0 outline-none touch-manipulation"
                   />
                   <input
                     type="tel"
                     placeholder="+7 (___) ___-__-__"
                     value={phone}
                     onChange={handlePhoneChange}
-                    className="w-full min-h-[48px] px-4 py-3.5 text-base border-2 border-slate-200 rounded-xl focus:border-[#EE410B] focus:ring-0 outline-none touch-manipulation"
+                    className="w-full min-h-[56px] px-4 py-3.5 text-base border-2 border-slate-200 rounded-xl focus:border-[#EE410B] focus:ring-0 outline-none touch-manipulation"
                   />
                 </div>
 
@@ -299,9 +265,9 @@ export default function Quiz() {
                 >
                   Получить расчёт
                 </motion.button>
-                <p className="mt-3 text-slate-400 text-xs leading-relaxed text-center">
+                <p className="mt-4 text-gray-500 text-xs text-center leading-relaxed">
                   Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с{' '}
-                  <a href="privacy.html" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.
+                  <a href="privacy.html" className="text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.
                 </p>
               </motion.form>
             )}

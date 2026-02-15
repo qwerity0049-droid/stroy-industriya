@@ -81,7 +81,7 @@ export default function WorkProcess() {
           Как мы работаем
         </h2>
         <p className="text-slate-600 text-center text-base md:text-lg max-w-2xl mx-auto">
-          От заявки до сдачи — прозрачный процесс под личным контролем
+          Вы заранее знаете сроки, этапы и итоговую стоимость.
         </p>
       </div>
 

@@ -11,8 +11,8 @@ const PROJECTS = [
     cost: '1 640 000 ₽',
     desc: 'Сложный проект с интеграцией бетонного погреба под домом. Выполнено полное армирование и заливка.',
     badge: 'Личный контроль Хайруллина Самата',
-    image: 'assets/20230519_144554.png',
-    fallback: 'assets/service-1.png',
+    image: 'assets/20230519_144554.webp',
+    fallback: 'assets/20230519_144554.png',
   },
   {
     id: 2,
@@ -23,8 +23,8 @@ const PROJECTS = [
     cost: '600 000 ₽',
     desc: 'Полный цикл работ от планировки участка до финишной заливки в рекордно короткие сроки без потери качества.',
     badge: 'Личный контроль Хайруллина Самата',
-    image: 'assets/20230510_122030.png',
-    fallback: 'assets/service-2.png',
+    image: 'assets/20230510_122030.webp',
+    fallback: 'assets/20230510_122030.png',
   },
   {
     id: 3,
@@ -35,8 +35,8 @@ const PROJECTS = [
     cost: '715 000 ₽',
     desc: 'Классическое решение для частного домостроения. Идеальная геометрия и соблюдение всех норм ГОСТ.',
     badge: 'Личный контроль Хайруллина Самата',
-    image: 'assets/20230519_154559.png',
-    fallback: 'assets/service-3.png',
+    image: 'assets/20230519_154559.webp',
+    fallback: 'assets/20230519_154559.png',
   },
 ];
 
@@ -73,6 +73,9 @@ function PortfolioCard({ project, index, onImageClick }) {
               src={project.image}
               alt={project.title}
               className="absolute inset-0 w-full h-full object-cover block scale-[1.05] group-hover:scale-[1.08] transition-transform duration-500"
+              loading="lazy"
+              width={400}
+              height={300}
               onLoad={() => setImgLoaded(true)}
               onError={(e) => {
                 if (project.fallback && e.target.src !== project.fallback) {
@@ -95,15 +98,15 @@ function PortfolioCard({ project, index, onImageClick }) {
         </div>
       </button>
       <div className="flex-grow flex flex-col px-4 pb-4 pt-2 md:px-5 md:pb-5 md:pt-3 min-w-0 -mt-px border-none bg-white">
-        <h3 className="font-bold text-slate-800 text-base md:text-lg mb-1.5 line-clamp-2 whitespace-normal min-h-[3.5rem]" title={project.title}>{project.title}</h3>
-        <p className="inline-flex items-center gap-1.5 text-slate-600 text-sm font-medium mb-2" title={project.location}>
+        <h3 className="font-bold text-slate-800 text-xl md:text-lg mb-1.5 line-clamp-2 whitespace-normal min-h-[3.5rem]" title={project.title}>{project.title}</h3>
+        <p className="inline-flex items-center gap-1.5 text-slate-600 text-base md:text-sm font-medium mb-2" title={project.location}>
           <svg className="w-4 h-4 text-[#EE410B] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           {project.location}
         </p>
-        <p className="text-slate-600 text-sm leading-relaxed flex-grow line-clamp-2 mb-3">{project.desc}</p>
+        <p className="text-slate-600 text-base md:text-sm leading-relaxed flex-grow line-clamp-2 mb-3">{project.desc}</p>
         <div className="flex flex-col gap-0.5 text-sm mb-3 py-2 border-t border-b border-slate-100 min-h-[3.5rem] justify-center">
           {project.duration && project.cost && (
             <span className="text-slate-600">
@@ -113,7 +116,7 @@ function PortfolioCard({ project, index, onImageClick }) {
         </div>
         <a
           href={project.slug ? `projects/${project.slug}.html` : '#'}
-          className="inline-flex items-center justify-center w-full min-h-[44px] py-2.5 px-4 bg-[#EE410B] text-white font-semibold rounded-xl hover:bg-[#d63909] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer shadow-md hover:shadow-lg text-sm"
+          className="inline-flex items-center justify-center w-full min-h-[56px] py-2.5 px-4 bg-transparent border-2 border-slate-300 text-slate-700 font-semibold rounded-xl hover:border-slate-400 hover:text-slate-800 transition-colors cursor-pointer text-base touch-manipulation"
         >
           Подробнее
         </a>
@@ -167,6 +170,9 @@ function Lightbox({ project, onClose }) {
             src={project.image}
             alt={project.title}
             className="w-full h-auto max-h-[85vh] object-contain object-top rounded-lg"
+            loading="lazy"
+            width={800}
+            height={600}
             onError={(e) => {
               if (project.fallback && e.target.src !== project.fallback) {
                 e.target.src = project.fallback;
@@ -190,7 +196,7 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="py-16 md:py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-6 md:px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-800 mb-3">
           Наши объекты в Уфе
         </h2>
@@ -219,11 +225,10 @@ export default function Portfolio() {
           <button
             type="button"
             onClick={() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-[#EE410B] hover:bg-[#d63909] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] text-base md:text-lg"
+            className="flex md:inline-flex items-center justify-center w-full md:w-auto min-h-[56px] px-8 py-4 md:px-10 md:py-5 bg-[#EE410B] hover:bg-[#d63909] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] text-base md:text-lg touch-manipulation"
           >
-            Записаться на замер
+            Хочу такой же расчёт
           </button>
-          <p className="mt-3 text-slate-500 text-xs text-center max-w-md">Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с <a href="privacy.html" className="text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.</p>
         </div>
       </div>
 

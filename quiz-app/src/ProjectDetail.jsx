@@ -60,6 +60,9 @@ export default function ProjectDetail({ slug, assetsBase = 'assets/' }) {
             src={assetsBase + project.image.replace('assets/', '')}
             alt={project.title}
             className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            width={1200}
+            height={600}
             onError={(e) => {
               e.target.src = assetsBase + project.fallback.replace('assets/', '');
               e.target.onerror = () => {

@@ -81,7 +81,7 @@ function FAQItem({ item, isOpen, onToggle }) {
             className="overflow-hidden"
           >
             <div className="px-4 sm:px-5 pb-5 pt-0 border-t border-slate-100">
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-4">
+              <p className="text-slate-600 text-base leading-relaxed pt-4">
                 {item.answer}
               </p>
             </div>
@@ -101,7 +101,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-16 md:py-24 bg-slate-50">
-      <div className="w-full max-w-[900px] mx-auto px-4">
+      <div className="w-full max-w-[900px] mx-auto px-6 md:px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-800 mb-3">
           Часто задаваемые вопросы
         </h2>
@@ -122,14 +122,13 @@ export default function FAQ() {
 
         <p className="mt-10 text-center text-slate-500 text-sm">
           Остались вопросы?{' '}
-          <a
-            href="https://web.telegram.org/a/#8345273002"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#EE410B] font-semibold hover:underline"
+          <button
+            type="button"
+            onClick={() => (window.openContactModal?.() || document.dispatchEvent(new CustomEvent('openContactModal')))}
+            className="text-[#EE410B] font-semibold hover:underline bg-transparent border-none cursor-pointer p-0"
           >
-            Напишите Самату лично в Telegram
-          </a>
+            Свяжитесь с нами
+          </button>
         </p>
       </div>
     </section>
