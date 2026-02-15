@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спасибо — СТРОЙИНДУСТРИЯ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #EE410B;
+      --charcoal: #2B2B2B;
+      --charcoal-light: #3d3d3d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0f0f0f;
+      color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    /* Pulsing dot animation */
+    .pulse-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse 1.5s ease-in-out infinite;
+      box-shadow: 0 0 12px var(--orange);
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    /* Main thank you text */
+    .thank-you-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .phone-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    .phone-text .phone {
+      color: var(--orange);
+      font-weight: 600;
+    }
+    /* Expert card */
+    .expert-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+    .expert-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--charcoal-light) 0%, var(--charcoal) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--orange);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .expert-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .expert-info {
+      flex: 1;
+    }
+    .expert-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    .expert-role {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+    }
+    /* CTA section */
+    .cta-text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .tg-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 1.75rem;
+      background: #0088cc;
+      color: #fff;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5);
+      animation: tg-glow 2s ease-in-out infinite;
+    }
+    .tg-btn:hover {
+      background: #0099e0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 136, 204, 0.4);
+    }
+    @keyframes tg-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(0, 136, 204, 0.4); }
+      50% { box-shadow: 0 0 35px rgba(0, 136, 204, 0.6); }
+    }
+    .tg-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+    /* Logo */
+    .logo {
+      position: absolute;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .logo span:last-child { color: var(--orange); }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo">
+    <span style="color:#fff">СТРОЙ</span><span>ИНДУСТРИЯ</span>
+  </a>
+
+  <div class="container">
+    <div class="pulse-row">
+      <span class="pulse-dot"></span>
+      <span>Связываемся с инженером...</span>
+    </div>
+
+    <h1 class="thank-you-title">Спасибо!</h1>
+    <p class="phone-text">
+      Скидка 5% зафиксирована за номером <span class="phone" id="userPhone">+7 (___) ___-__-__</span>.
+    </p>
+
+    <div class="expert-card">
+      <div class="expert-photo" id="expertPhoto">
+        <span>СХ</span>
+      </div>
+      <div class="expert-info">
+        <div class="expert-name">Самат Хайруллин</div>
+        <div class="expert-role">Лично проверит ваш расчёт</div>
+      </div>
+    </div>
+
+    <p class="cta-text">
+      Пока я считаю смету, посмотрите наши работы в реальном времени:
+    </p>
+    <a href="https://web.telegram.org/a/#8345273002" target="_blank" rel="noopener" class="tg-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+      Открыть наш Telegram
+    </a>
+  </div>
+
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const phone = params.get('phone') || params.get('tel') || '';
+      const el = document.getElementById('userPhone');
+      if (phone) {
+        el.textContent = decodeURIComponent(phone);
+      }
+      // Try to load Samat's photo if available
+      const photo = document.getElementById('expertPhoto');
+      const img = new Image();
+      img.onload = function() {
+        photo.innerHTML = '';
+        photo.appendChild(img);
+      };
+      img.src = 'assets/samat.png';
+    })();
+  </script>
+</body>
+</html>

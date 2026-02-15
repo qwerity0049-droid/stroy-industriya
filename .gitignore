@@ -1,0 +1,5 @@
+node_modules/
+
+# Cursor/Gemini generated images with long filenames
+*Gemini_Generated_Image*
+*workspaceStorage*images*

@@ -1,0 +1,13 @@
+{
+  "name": "stroindustriya",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . -p 3000",
+    "build:quiz": "cd quiz-app && npm run build && copy /Y dist\\*.js ..\\assets\\ && copy /Y dist\\quiz.css ..\\assets\\quiz.css"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

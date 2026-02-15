@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>СТРОЙИНДУСТРИЯ — Фундаменты и бетонные работы в Уфе под ключ</title>
+  <meta name="description" content="Фундаменты и бетонные работы в Уфе. Гарантия 5 лет. Расчет за 15 мин. Выезд на замер 0 ₽. Звоните 8 (927) 934-44-48">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/quiz.css?v=4">
+  <link rel="preload" href="assets/partners-logos.png" as="image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: '#EE410B',
+            charcoal: '#2B2B2B',
+            'construction-orange': '#F57C00',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .quiz-option:has(input:checked) { border-color: #EE410B; background-color: rgba(238,65,11,0.05); }
+    .bg-gradient-radial-hero {
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.3) 70%, transparent 100%);
+    }
+    .compare-slider {
+      position: relative;
+      touch-action: none;
+      user-select: none;
+    }
+    .compare-slider__before {
+      clip-path: inset(0 calc(100% - var(--split, 50%)) 0 0);
+    }
+    .compare-slider__after {
+      clip-path: inset(0 0 0 var(--split, 50%));
+    }
+    .compare-slider__divider {
+      left: var(--split, 50%);
+      transform: translateX(-50%);
+      width: 48px;
+      margin-left: -24px;
+      cursor: ew-resize;
+    }
+    .compare-slider img {
+      pointer-events: none;
+      user-select: none;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(238, 65, 11, 0.6); }
+      50% { box-shadow: 0 0 0 15px rgba(238, 65, 11, 0); }
+    }
+    .btn-pulse {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    /* Hero: на весь экран, лицо Самата в кадре */
+    .hero-bg {
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+    }
+    /* Slider: урезать небо сверху */
+    .slider-img-crop {
+      object-position: center 75%;
+    }
+    /* Service card images: crop bottom 15% (logo), keep almost original (no zoom) */
+    .service-card-img {
+      object-fit: contain;
+      object-position: center top;
+      clip-path: inset(0 0 15% 0);
+    }
+    /* Modal Telegram button pulse */
+    @keyframes modal-tg-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5); }
+      50% { box-shadow: 0 0 0 12px rgba(0, 136, 204, 0); }
+    }
+    .modal-tg-pulse {
+      animation: modal-tg-pulse 2s ease-in-out infinite;
+    }
+    /* Founder section: fade-in-up on scroll */
+    .founder-animate {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .founder-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-charcoal bg-white">
+  <!-- Fixed Header: Centered nav -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-6xl mx-auto px-4 relative">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="#" class="flex items-center gap-1 flex-shrink-0">
+          <span class="font-bold text-xl md:text-2xl uppercase text-charcoal">СТРОЙ</span>
+          <span class="font-bold text-xl md:text-2xl uppercase text-orange">ИНДУСТРИЯ</span>
+        </a>
+        <nav class="hidden md:flex items-center justify-center gap-6 lg:gap-8 text-sm font-medium absolute left-1/2 -translate-x-1/2">
+          <a href="#services" class="hover:text-orange transition">Услуги</a>
+          <a href="#services" class="hover:text-orange transition">Цены</a>
+          <a href="#portfolio" class="hover:text-orange transition">Работы</a>
+          <a href="#work-process" class="hover:text-orange transition">Процесс работы</a>
+          <a href="#faq" class="hover:text-orange transition">FAQ</a>
+        </nav>
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="https://web.telegram.org/a/#8345273002" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[#0088cc] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#0077b5] transition text-sm">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Telegram
+          </a>
+          <a href="tel:+79279344448" class="font-semibold hover:text-orange text-sm sm:text-base">8 (927) 934-44-48</a>
+          <button class="md:hidden p-2" aria-label="Меню" id="burgerBtn">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileNav" class="hidden md:hidden bg-white border-t px-4 py-4">
+      <div class="flex flex-col gap-3">
+        <a href="#services">Услуги</a>
+        <a href="#services">Цены</a>
+        <a href="#portfolio">Работы</a>
+        <a href="#work-process">Процесс работы</a>
+        <a href="#faq">FAQ</a>
+        <a href="tel:+79279344448">8 (927) 934-44-48</a>
+        <a href="https://web.telegram.org/a/#8345273002" target="_blank">Telegram</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero: Centered container (ofimall style) -->
+  <section class="pt-24 pb-4 px-4">
+    <div class="max-w-[1200px] mx-auto">
+      <!-- Main Hero Container: bg image, dark overlay, rounded corners -->
+      <div class="relative overflow-hidden rounded-2xl bg-charcoal">
+        <!-- Background: construction site + Samat. Отдалено, лицо в кадре -->
+        <div class="absolute inset-0 hero-bg" style="background-image: url('assets/hero-bg.png');"></div>
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- Content + Face of Company (height ~1.5x: py-30). Text only on left 70%, right 30% for Samat -->
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 py-[7.5rem] px-6 md:px-12 lg:px-16 min-h-[540px] md:min-h-[820px]">
+          <!-- Text: left 70% max, no text on right 30% -->
+          <div class="flex-1 md:max-w-[70%] text-center md:text-left">
+            <h1 class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5">
+              Заливка фундаментов и бетонные работы в Уфе
+            </h1>
+            <p class="text-white/75 text-sm md:text-base max-w-[700px] md:max-w-none mb-6">
+              Профессиональное бетонирование любой сложности с гарантией по договору: от отмостки до фундамента под ключ.
+            </p>
+            <!-- Фишка: триггер -->
+            <p class="text-white font-semibold text-sm md:text-base mb-6">
+              Выезд на замер и расчет сметы — 0 ₽
+            </p>
+            <!-- Huge CTA Button with pulse -->
+            <a href="#quiz" class="inline-flex items-center justify-center bg-[#EE410B] text-white font-bold text-base sm:text-lg md:text-xl py-5 px-8 md:py-6 md:px-12 rounded-xl hover:bg-[#d63909] transition shadow-xl hover:shadow-2xl btn-pulse">
+              РАССЧИТАТЬ СТОИМОСТЬ
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Преимущества: сразу после гл экрана, перед интерактивным слайдером -->
+  <section class="pt-4 pb-8 px-4 -mt-2">
+    <div class="max-w-[1200px] mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:border-orange/30 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-full bg-orange/10 flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-charcoal mb-2">Профессиональный штат</h3>
+          <p class="text-gray-600 text-sm">На объекте работают опытные мастера (от 5 до 20 человек в бригаде) со стажем более 10 лет.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:border-orange/30 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-full bg-orange/10 flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="font-bold text-charcoal mb-2">Гарантия отсутствия трещин</h3>
+          <p class="text-gray-600 text-sm">Используем глубинные вибраторы для уплотнения смеси и правильный уход за твердеющим бетоном.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:border-orange/30 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-full bg-orange/10 flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-charcoal mb-2">Фиксированная смета</h3>
+          <p class="text-gray-600 text-sm">Цена в договоре не меняется в процессе работы. Вы точно знаете, за что платите.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process + Slider + Quiz: React components -->
+  <div id="quiz-mount"></div>
+
+  <!-- Services: Mobile First, card-based -->
+  <section id="services" class="py-10 md:py-16 lg:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-charcoal mb-3 md:mb-4">Услуги и актуальные цены</h2>
+      <p class="text-base md:text-lg text-center text-slate-600 mb-2 max-w-2xl mx-auto">Личный контроль Самата на каждом этапе.</p>
+      <p class="text-slate-600 text-center text-sm mb-8 md:mb-10 max-w-2xl mx-auto">Цены фиксируются в официальном договоре и не меняются в процессе работ. Гарантия на работы закреплена юридически в договоре.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
+        <article class="service-card flex flex-col h-full bg-white rounded-xl shadow-md overflow-hidden border border-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-construction-orange/40">
+          <div class="aspect-[4/3] relative bg-gradient-to-br from-slate-600 to-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0">
+            <span class="text-3xl md:text-4xl text-white/80">🏗️</span>
+            <img src="assets/service-1.png" alt="Устройство бетонного фундамента" class="absolute inset-0 w-full h-full object-cover object-center z-10" onerror="this.style.display='none'">
+          </div>
+          <div class="p-4 md:p-5 flex flex-col flex-1 min-h-0">
+            <h3 class="text-[0.82rem] md:text-[0.95rem] font-bold text-charcoal mb-2 leading-tight" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Устройство бетонного фундамента</h3>
+            <p class="text-construction-orange font-bold text-lg md:text-xl mb-2 whitespace-nowrap">от 7 500 ₽/м³</p>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">Профессиональное устройство монолитного основания. Включает вязку арматуры и заливку бетона.</p>
+            <a href="https://web.telegram.org/a/#8345273002" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full min-h-[48px] py-3 px-4 border-2 border-slate-300 rounded-xl font-semibold text-slate-700 hover:bg-[#0088cc] hover:border-[#0088cc] hover:text-white transition text-sm md:text-base touch-manipulation mt-auto">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              Написать в Telegram
+            </a>
+            <p class="mt-2 text-slate-400 text-[10px] text-center">Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с <a href="privacy.html" class="text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.</p>
+          </div>
+        </article>
+
+        <article class="service-card flex flex-col h-full bg-white rounded-xl shadow-md overflow-hidden border border-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-construction-orange/40">
+          <div class="aspect-[4/3] relative bg-gradient-to-br from-slate-600 to-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0">
+            <span class="text-3xl md:text-4xl text-white/80">🛤️</span>
+            <img src="assets/service-2.png" alt="Устройство отмостки" class="absolute inset-0 w-full h-full object-cover object-center z-10" onerror="this.style.display='none'">
+          </div>
+          <div class="p-4 md:p-5 flex flex-col flex-1 min-h-0">
+            <h3 class="text-[0.82rem] md:text-[0.95rem] font-bold text-charcoal mb-2 leading-tight" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Устройство отмостки</h3>
+            <p class="text-construction-orange font-bold text-lg md:text-xl mb-2 whitespace-nowrap">от 1 700 ₽/п.м.</p>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">Защита основания и благоустройство территории с соблюдением уклонов для водоотвода.</p>
+            <a href="https://web.telegram.org/a/#8345273002" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full min-h-[48px] py-3 px-4 border-2 border-slate-300 rounded-xl font-semibold text-slate-700 hover:bg-[#0088cc] hover:border-[#0088cc] hover:text-white transition text-sm md:text-base touch-manipulation mt-auto">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              Написать в Telegram
+            </a>
+            <p class="mt-2 text-slate-400 text-[10px] text-center">Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с <a href="privacy.html" class="text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.</p>
+          </div>
+        </article>
+
+        <article class="service-card flex flex-col h-full bg-white rounded-xl shadow-md overflow-hidden border border-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-construction-orange/40">
+          <div class="aspect-[4/3] relative bg-gradient-to-br from-slate-600 to-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0">
+            <span class="text-3xl md:text-4xl text-white/80">🏭</span>
+            <img src="assets/image_f35008.png" alt="Изготовление и монтаж металлоконструкций" class="absolute inset-0 w-full h-full object-cover object-center z-10" onerror="this.onerror=null;this.src='assets/service-3.png'">
+          </div>
+          <div class="p-4 md:p-5 flex flex-col flex-1 min-h-0">
+            <h3 class="text-[0.82rem] md:text-[0.95rem] font-bold text-charcoal mb-2 leading-tight" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Изготовление и монтаж металлоконструкций</h3>
+            <p class="text-construction-orange font-bold text-lg md:text-xl mb-2 whitespace-nowrap">от 15 000 ₽</p>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">Сварка каркасов, монтаж ангаров и складов. Личный контроль инженера Самата на каждом этапе.</p>
+            <a href="https://web.telegram.org/a/#8345273002" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full min-h-[48px] py-3 px-4 border-2 border-slate-300 rounded-xl font-semibold text-slate-700 hover:bg-[#0088cc] hover:border-[#0088cc] hover:text-white transition text-sm md:text-base touch-manipulation mt-auto">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              Написать в Telegram
+            </a>
+            <p class="mt-2 text-slate-400 text-[10px] text-center">Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с <a href="privacy.html" class="text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.</p>
+          </div>
+        </article>
+
+      </div>
+      <p class="mt-4 text-slate-600 text-sm text-center font-medium max-w-2xl mx-auto">Внимание: Финальная стоимость зависит от объема и сложности объекта. Цены фиксируются в договоре.</p>
+      <p class="mt-2 text-slate-500 text-xs text-center">Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с <a href="privacy.html" class="text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.</p>
+
+      <!-- Direct Download: Price List PDF -->
+      <div class="mt-8 md:mt-10 flex flex-col items-center justify-center">
+        <a href="price-list-stroyindustriya.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Скачать полный прайс-лист в формате PDF" class="pricelist-download-btn inline-flex items-center justify-center gap-3 min-h-[54px] px-6 py-4 md:px-8 md:py-5 bg-white border-2 border-construction-orange text-construction-orange font-bold rounded-xl shadow-md hover:shadow-lg hover:bg-construction-orange/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-base md:text-lg w-full max-w-md touch-manipulation">
+          <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Скачать полный прайс-лист (PDF)
+        </a>
+        <p class="mt-3 text-slate-500 text-xs md:text-sm text-center max-w-md px-2">Цены в прайс-листе актуальны на 2026 год для Уфы и пригорода. Гарантия по договору. Личный контроль инженера Самата.</p>
+        <p class="mt-2 text-slate-500 text-xs text-center">Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с <a href="privacy.html" class="text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.</p>
+      <p class="mt-2 text-slate-600 text-sm text-center">Или позвоните: <a href="tel:+79279344448" class="font-bold text-construction-orange hover:underline">8 (927) 934-44-48</a></p>
+      </div>
+
+      <!-- CTA: Забронировать выезд Самата -->
+      <div class="mt-8 md:mt-12 text-center">
+        <a href="#quiz" class="inline-flex items-center justify-center gap-2 py-4 px-8 bg-construction-orange text-white font-bold rounded-xl hover:bg-[#e66d00] transition shadow-lg text-base md:text-lg">Забронировать выезд Самата</a>
+        <p class="mt-3 text-slate-500 text-xs text-center max-w-md mx-auto">Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с <a href="privacy.html" class="text-[#EE410B] hover:underline">Политикой конфиденциальности</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personal Brand & Trust: Founder's Card -->
+  <section id="founder" class="py-10 md:py-16 lg:py-20 bg-slate-50 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-center text-charcoal mb-6 md:mb-8 founder-animate">Почему выбирают «Строй<span class="text-orange">индустрию</span>»</h2>
+
+      <div class="flex flex-col lg:flex-row lg:items-start lg:gap-12">
+        <!-- Photo: prominent on mobile -->
+        <div class="founder-animate order-1 lg:order-1 lg:flex-shrink-0 lg:w-[380px] mb-6 lg:mb-0">
+          <div class="aspect-[4/3] lg:aspect-[3/4] max-w-sm mx-auto lg:max-w-none rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-slate-600 to-slate-700 flex items-center justify-center relative">
+            <span class="text-6xl text-white/60 founder-photo-fallback">СХ</span>
+            <img src="assets/samat.png" alt="Самат Хайруллин — основатель компании" class="absolute inset-0 w-full h-full object-cover object-center z-10" onerror="this.remove()">
+          </div>
+        </div>
+
+        <!-- Text & Trust Points -->
+        <div class="flex-1 founder-animate order-2">
+          <p class="text-lg md:text-xl font-bold text-charcoal mb-2">Самат Хайруллин — основатель и главный инженер</p>
+          <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-6 md:mb-8">Я не занимаюсь «потоковым» строительством. Беру одновременно не более 3 объектов, чтобы лично присутствовать на каждом этапе: от разметки осей до приемки бетона.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-8">
+            <div class="flex gap-4 p-4 md:p-5 bg-white rounded-xl shadow-sm border border-slate-100 founder-animate" style="transition-delay: 0.1s">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-construction-orange/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-construction-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Личный контроль</h4>
+                <p class="text-slate-600 text-sm md:text-base">Проверяю вязку арматуры и установку опалубки перед каждой заливкой.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 p-4 md:p-5 bg-white rounded-xl shadow-sm border border-slate-100 founder-animate" style="transition-delay: 0.2s">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-construction-orange/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-construction-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Качество по ГОСТ</h4>
+                <p class="text-slate-600 text-sm md:text-base">Использую арматуру строго по ГОСТ и проверяю каждую машину бетона на подвижность (конус).</p>
+              </div>
+            </div>
+            <div class="flex gap-4 p-4 md:p-5 bg-white rounded-xl shadow-sm border border-slate-100 sm:col-span-2 founder-animate" style="transition-delay: 0.3s">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-construction-orange/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-construction-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Юридическая чистота</h4>
+                <p class="text-slate-600 text-sm md:text-base">Работаем строго по договору и распискам. Фиксированная смета — цена не вырастет в процессе.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 p-4 md:p-5 bg-white rounded-xl shadow-sm border border-slate-100 sm:col-span-2 founder-animate" style="transition-delay: 0.4s">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-construction-orange/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-construction-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Опыт 10+ лет</h4>
+                <p class="text-slate-600 text-sm md:text-base">За это время изучил все типы грунтов в Уфе и пригороде.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://web.telegram.org/a/#8345273002" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto py-4 px-6 md:px-8 bg-[#0088cc] text-white font-bold rounded-xl hover:bg-[#0077b5] transition shadow-lg text-base md:text-lg" aria-label="Задать вопрос Самату в Telegram">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Задать вопрос Самату в Telegram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio: React component -->
+  <div id="portfolio-mount"></div>
+
+  <!-- Commercial & Industrial: 4-card gallery -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div id="industrial-mount"></div>
+    </div>
+  </section>
+
+  <!-- Contacts Footer -->
+  <footer id="contacts" class="bg-[#1A202C] text-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+        <!-- Left: Logo & Info -->
+        <div class="space-y-4">
+          <p class="font-bold text-xl uppercase tracking-wide">СТРОЙ ИНДУСТРИЯ</p>
+          <p class="text-white/80 text-sm leading-relaxed">Профессиональные бетонные работы в Уфе и пригороде.</p>
+          <p class="text-white/60 text-sm">Хайруллин Самат (Генеральный директор)</p>
+        </div>
+        <!-- Center: Navigation -->
+        <div class="space-y-3">
+          <p class="font-semibold text-sm text-white/90 mb-2">Навигация</p>
+          <nav class="flex flex-col gap-2">
+            <a href="#services" class="text-white/70 hover:text-[#EE410B] transition text-sm">Услуги</a>
+            <a href="#work-process" class="text-white/70 hover:text-[#EE410B] transition text-sm">Этапы работ</a>
+            <a href="#services" class="text-white/70 hover:text-[#EE410B] transition text-sm">Прайс-лист</a>
+            <a href="#portfolio" class="text-white/70 hover:text-[#EE410B] transition text-sm">Наши работы</a>
+            <a href="#contacts" class="text-white/70 hover:text-[#EE410B] transition text-sm">Контакты</a>
+          </nav>
+        </div>
+        <!-- Right: Contacts -->
+        <div class="space-y-4">
+          <p class="font-semibold text-sm text-white/90 mb-2">Контакты</p>
+          <p><a href="tel:+79279344448" class="text-white font-bold hover:text-[#EE410B] transition text-lg">8 (927) 934-44-48</a></p>
+          <p class="text-white/80 text-sm">г. Уфа, ул. Айская, 52/1</p>
+          <div class="flex gap-3 pt-2">
+            <a href="https://wa.me/79279344448" target="_blank" rel="noopener" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#25D366] text-white hover:bg-[#20bd5a] transition" aria-label="WhatsApp">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://web.telegram.org/a/#8345273002" target="_blank" rel="noopener" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#0088cc] text-white hover:bg-[#0077b5] transition" aria-label="Telegram">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:pr-16 relative">
+        <div class="text-center sm:text-left space-y-1">
+          <p class="text-white/50 text-xs leading-relaxed">Сайт носит информационный характер и не является публичной офертой (ст. 437 ГК РФ).</p>
+          <p class="text-white/60 text-xs">
+            <a href="privacy.html" class="hover:text-[#EE410B] transition underline">Политика конфиденциальности</a>
+          </p>
+          <p class="text-white/50 text-xs">© 2026</p>
+        </div>
+        <button type="button" id="backToTop" class="self-center sm:absolute sm:right-4 sm:top-1/2 sm:-translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white transition" aria-label="Наверх">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Telegram button (mobile only) -->
+  <a href="https://web.telegram.org/a/#8345273002" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 md:hidden flex items-center justify-center rounded-full bg-[#0088cc] text-white shadow-lg hover:bg-[#0077b5] transition-all active:scale-95" aria-label="Написать в Telegram">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+  </a>
+
+  <script type="module" src="assets/quiz.js?v=4"></script>
+  <script src="script.js"></script>
+</body>
+</html>
