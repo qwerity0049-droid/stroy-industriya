@@ -39,6 +39,11 @@ body {
 .partners-ticker {
   animation: partners-scroll 40s linear infinite;
 }
+@media (max-width: 767px) {
+  .partners-ticker {
+    animation-duration: 18s;
+  }
+}
 .partners-ticker:hover {
   animation-play-state: paused;
 }
