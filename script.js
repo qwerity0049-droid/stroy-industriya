@@ -1,7 +1,39 @@
 (function () {
   'use strict';
 
-  // Before/After Compare Slider
+  function openContactModal() {
+    const modal = document.getElementById('contactModalVanilla');
+    if (modal) {
+      modal.classList.add('is-open');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeContactModal() {
+    const modal = document.getElementById('contactModalVanilla');
+    if (modal) {
+      modal.classList.remove('is-open');
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('click', function (e) {
+    const trigger = e.target.closest('.contact-trigger');
+    if (trigger) {
+      e.preventDefault();
+      e.stopPropagation();
+      document.getElementById('mobileNav')?.classList.add('hidden');
+      openContactModal();
+    }
+  });
+  document.getElementById('contactModalClose')?.addEventListener('click', closeContactModal);
+  document.getElementById('contactModalVanilla')?.addEventListener('click', function (e) {
+    if (e.target === this) closeContactModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeContactModal();
+  });
+
   const compareSlider = document.getElementById('compareSlider');
   const compareDivider = document.getElementById('compareDivider');
   if (compareSlider && compareDivider) {
@@ -36,10 +68,8 @@
       document.addEventListener('touchend', stop);
       move(e);
     });
-    // Картинки не кликабельны — сдвиг только перетаскиванием ползунка
   }
 
-  // Mobile menu
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileNav = document.getElementById('mobileNav');
 
@@ -47,14 +77,13 @@
     burgerBtn.addEventListener('click', function () {
       mobileNav.classList.toggle('hidden');
     });
-    mobileNav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
+    mobileNav.querySelectorAll('a, button').forEach(function (el) {
+      el.addEventListener('click', function () {
         mobileNav.classList.add('hidden');
       });
     });
   }
 
-  // Phone mask
   function maskPhone(input) {
     if (!input) return;
     input.addEventListener('input', function (e) {
@@ -72,7 +101,6 @@
   maskPhone(document.getElementById('quizPhone'));
   maskPhone(document.getElementById('ctaPhone'));
 
-  // Quiz: 5 steps (legacy — replaced by React Quiz if present)
   const quizForm = document.getElementById('quizForm');
   const quizSteps = document.querySelectorAll('.quiz-step');
   const quizPrev = document.getElementById('quizPrev');
@@ -82,7 +110,6 @@
   const quizStepIndicator = document.getElementById('quizStepIndicator');
 
   if (!quizForm) {
-    // React Quiz is used instead
   } else {
   let currentStep = 1;
   const totalSteps = 5;
@@ -152,7 +179,7 @@
       msg += 'Имя: ' + (name && name.value ? name.value : '-') + '\n';
       msg += 'Телефон: ' + (phone ? phone.value : '-') + '\n';
 
-      window.open('https://web.telegram.org/a/#8345273002', '_blank');
+      openContactModal();
     });
   }
 
@@ -165,15 +192,11 @@
     });
   });
 
-  // CTA form
   const ctaForm = document.getElementById('ctaForm');
   if (ctaForm) {
     ctaForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const name = ctaForm.querySelector('input[name="name"]').value;
-      const phone = ctaForm.querySelector('input[name="phone"]').value;
-      const msg = 'Здравствуйте! ' + name + '. Хочу заказать консультацию инженера. Мой телефон: ' + phone;
-      window.open('https://web.telegram.org/a/#8345273002', '_blank');
+      openContactModal();
     });
   }
 
@@ -187,7 +210,6 @@
     }
   });
 
-  // Back to top
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
     backToTop.addEventListener('click', function () {
@@ -195,7 +217,6 @@
     });
   }
 
-  // Founder section: fade-in-up on scroll (staggered)
   const founderSection = document.getElementById('founder');
   const founderAnimate = document.querySelectorAll('.founder-animate');
   if (founderSection && founderAnimate.length && 'IntersectionObserver' in window) {

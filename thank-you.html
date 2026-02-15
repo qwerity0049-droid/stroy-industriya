@@ -219,7 +219,10 @@
         photo.innerHTML = '';
         photo.appendChild(img);
       };
-      img.src = 'assets/samat.png';
+      img.onerror = function() {
+        if (this.src.includes('.webp')) { this.src = 'assets/samat.png'; }
+      };
+      img.src = 'assets/samat.webp';
     })();
   </script>
 </body>
